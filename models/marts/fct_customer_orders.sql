@@ -38,7 +38,7 @@ left join (select orderid as order_id, max(created) as payment_finalized_date, s
 from payments
 where status <> 'fail'
 group by 1) p on orders.id = p.order_id
-left join {{ source('jaffle_shop', 'customers') }} c on orders.user_id = c.id ),
+left join customers c on orders.user_id = c.id ),
 
 customer_orders 
     as (select c.id as customer_id
