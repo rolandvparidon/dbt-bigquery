@@ -43,7 +43,8 @@ paid_orders as (
     c.last_name as customer_last_name
 from orders
 left join completed_payments as p on orders.id = p.order_id
-left join customers c on orders.user_id = c.id ),
+left join customers c on orders.user_id = c.id 
+),
 
 customer_orders as (
     select c.id as customer_id,
@@ -52,10 +53,12 @@ customer_orders as (
     count(orders.id) as number_of_orders,
     from customers c 
     left join orders on orders.user_id = c.id 
-    group by 1)
+    group by 1
+),
 
 -- final cte's
 
+final as (
 select
     p.*,
     row_number() over (order by p.order_id) as transaction_seq,
@@ -78,3 +81,6 @@ select
         order by p.order_id
     ) x on x.order_id = p.order_id
     order by order_id
+)
+
+select * from final
