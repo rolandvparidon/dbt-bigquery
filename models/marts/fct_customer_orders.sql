@@ -40,7 +40,7 @@ paid_orders as (
     completed_payments.total_amount_paid,
     completed_payments.payment_finalized_date,
     customers.first_name as customer_first_name,
-    ccustomers.last_name as customer_last_name
+    customers.last_name as customer_last_name
 from orders
 left join completed_payments on orders.id = completed_payments.order_id
 left join customers on orders.user_id = customers.id 
