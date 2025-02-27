@@ -3,7 +3,7 @@ with
 source as (
 
     select * from {{ ref('stg_jaffle_shop__orders') }}
-    
+
 ),
 
 transformed as (
@@ -15,7 +15,7 @@ transformed as (
         order_date as order_placed_at,
         status as order_status,
         case
-            when order_status not in ('returned', 'return_pending')
+            when status not in ('returned', 'return_pending')
             then order_date
         end as valid_order_date
 
