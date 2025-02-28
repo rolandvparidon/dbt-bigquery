@@ -5,3 +5,4 @@ sources:
     database: dbt-tutorial
     tables: 
       - name: payment
+  
