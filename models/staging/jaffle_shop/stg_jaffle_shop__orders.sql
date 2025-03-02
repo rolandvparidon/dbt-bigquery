@@ -25,4 +25,3 @@ transformed as (
 
 select * from transformed
 
---{{ limit_data_in_dev('order_placed_at', 1000) }}
