@@ -38,8 +38,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   my_new_project:
     # Applies to all files under models/example/
-    jaffle_shop:
-      +materialized: table
+    #jaffle_shop:
+      #+materialized: table
   ## dbt-bigquery-models models will be created in the schema '<your_schema>_dbt_bigquery_monitoring' (or anything related if you override output schema system through a macro)
-  dbt_bigquery_monitoring:
-    +schema: "dbt_bigquery_monitoring"
+  #dbt_bigquery_monitoring:
+    #+schema: "dbt_bigquery_monitoring"
