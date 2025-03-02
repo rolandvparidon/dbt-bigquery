@@ -3,7 +3,7 @@
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 name: 'my_new_project'
-version: '1.0.0'
+version: '2.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
@@ -40,3 +40,6 @@ models:
     # Applies to all files under models/example/
     jaffle_shop:
       +materialized: table
+  ## dbt-bigquery-models models will be created in the schema '<your_schema>_dbt_bigquery_monitoring' (or anything related if you override output schema system through a macro)
+  dbt_bigquery_monitoring:
+    +schema: "dbt_bigquery_monitoring"
